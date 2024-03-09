@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "tree tabs sidebar",
+  "version": "1.0",
+  "description": "tree tabs sidebar",
+  "background": {
+    "service_worker": "background.ts",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "./sidebar/index.html"
+  },
+  "action": {
+    "default_title": "Click to open a panel"
+  },
+  "permissions": ["tabs", "sidePanel"]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "tatabs",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "concurrently npm:dev:*",
+    "dev:parcel": "parcel watch src/manifest.json --host localhost",
+    "dev:css-types": "typed-scss-modules src/**/*.module.scss --nameFormat none --watch",
+    "build": "parcel build src/manifest.json",
+    "clean:src": "cd src && git clean -fdX",
+    "clean:all": "git clean -fdX"
+  },
+  "author": "",
+  "license": "ISC",
+  "@parcel/transformer-css": {
+    "drafts": {
+      "nesting": true
+    }
+  },
+  "devDependencies": {
+    "@parcel/config-webextension": "^2.12.0",
+    "@parcel/transformer-sass": "^2.12.0",
+    "@types/chrome": "^0.0.263",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.34.0",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10",
+    "typed-scss-modules": "^8.0.0",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "lucide-react": "^0.354.0",
+    "mobx": "^6.12.0",
+    "mobx-react-lite": "^4.0.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

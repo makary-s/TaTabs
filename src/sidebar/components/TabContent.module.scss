@@ -1,0 +1,128 @@
+@import './styles.scss';
+
+.root {
+  user-select: none;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  height: 30px;
+  padding-left: $leftPadding;
+  transition: background-color 100ms;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &.isStatus {
+    &unloaded {
+      opacity: 0.5;
+    }
+    &complete {
+      opacity: 1;
+    }
+    &loading {
+      opacity: 1;
+    }
+  }
+
+  &.isActive {
+    background-color: #bed4dd;
+  }
+    
+}
+
+.point {
+  display: flex;
+  position: relative;
+  width: $indentWidth;
+  min-width: $indentWidth;
+  align-items: center;
+  justify-items: center;
+
+  img {
+    width: 100%;
+    transition: opacity 100ms;
+  } 
+}
+
+.isHasChildren .point {
+  cursor: pointer;
+}
+
+.title {
+  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+.expandButton {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: transparent;
+  background-color: transparent;
+  color: #474747;
+  opacity: 0;
+
+  transition:
+    color 100ms,
+    opacity 100ms,
+    background-color 100ms,
+    scale 100ms,
+    transform 100ms;
+
+  &:hover {
+    color: #080808;
+    scale: 1.2;
+  }
+}
+
+.root.isExpanded {
+  .expandButton {
+    transform: rotate(90deg);
+  }
+}
+
+.root:hover.isHasChildren {
+  .point img {
+    opacity: $dimmedIconOpacity;
+  }
+}
+
+.root.isHasChildren.isCollapsed,
+.root.isHasChildren:hover {
+  .point img {
+    opacity: $dimmedIconOpacity;
+  }
+
+  .expandButton {
+    opacity: 1;
+  }
+}
+
+.spinner {
+  opacity: 0.5;
+  $size: 28px;
+  position: absolute;
+  animation: spin 1s linear infinite;
+  width: $size;
+  height: $size;
+  top: calc(($indentWidth - $size) / 2);
+  left: calc(($indentWidth - $size) / 2);
+  color: rgb(104, 104, 104);
+  svg {
+    width: $size;
+    height: $size;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
