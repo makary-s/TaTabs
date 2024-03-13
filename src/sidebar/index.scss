@@ -1,4 +1,32 @@
 body {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --tree-node_height: 16px;
+  --tree-node_indent: 16px;
+  --tree-node_vertical-padding: 6px;
+  --tree-node_horizontal-padding: 6px;
+
+  --color_gray-light: rgb(197, 197, 197);
+  --color_gray: rgb(104, 104, 104);
+  --color_dark: #474747;
+  --color_black: #080808;
+
+  --color_bg_selected: #1e8fff28;
+  --color_bg_active: #7d7d7d4a;
+
+  --color_bg_background: whitesmoke;
+
+  --opacity_dimmed: 0.2;
+
+  --size_s-1: 2px;
+  --size_s-2: 4px;
+  --size_s-3: 8px;
+  --size_s-4: 16px;
+
+  --speed_fast: 100ms;
+  --speed_medium: 300ms;
+  --speed_long: 600ms;
 }

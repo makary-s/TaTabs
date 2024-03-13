@@ -12,20 +12,25 @@ export const keys = <T extends Record<any, any>>(obj: T): Array<keyof T> => {
 }
 
 export const join = (
-  values: Array<string | boolean | null | undefined>,
+  values: ReadonlyArray<string | false | null | undefined>,
   separator = ' '
 ): string => {
   let result = ''
 
   for (const value of values) {
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-    if (value) {
+    if (typeof value === 'string' && value.length !== 0) {
       if (result.length > 0) result += separator
       result += value
     }
   }
 
   return result
+}
+
+export const cn = (
+  ...values: ReadonlyArray<string | false | null | undefined>
+): string => {
+  return join(values, ' ')
 }
 
 export const clampNumber = (value: number, min: number, max: number): number => {

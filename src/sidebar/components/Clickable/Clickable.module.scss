@@ -1,0 +1,26 @@
+.isPadding {
+  padding: var(--size_s-3);
+}
+
+.bypass {
+  border-radius: var(--size_s-1);
+}
+
+.root {
+  border-radius: var(--size_s-1);
+  cursor: pointer;
+  transition: scale var(--speed_fast);
+}
+
+.root[aria-disabled="true"] {
+  opacity: 0.4;
+}
+
+.root:not([aria-disabled="true"]):hover {
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px 0px #00000017;
+}
+
+.root:not([aria-disabled="true"]):active {
+  scale: 0.8;
+}

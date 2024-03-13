@@ -1,0 +1,14 @@
+:root {
+  --collapsible-arrow_size: 20px;
+}
+
+.root {
+  transition: transform var(--speed_fast);
+
+  &.isCollapsed {
+    transform: rotate(-90deg);
+  }
+
+  height: var(--collapsible-arrow_size);
+  width: var(--collapsible-arrow_size);
+}

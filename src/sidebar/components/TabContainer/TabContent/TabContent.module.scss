@@ -1,0 +1,104 @@
+.root {
+  user-select: none;
+  display: flex;
+  gap: var(--size_s-2);
+  align-items: center;
+  height: var(--tree-node_height);
+  transition: background-color var(--speed_fast);
+  background-color: transparent;
+
+  &.isStatus {
+    &unloaded {
+      opacity: 0.5;
+    }
+    &complete {
+      opacity: 1;
+    }
+    &loading {
+      opacity: 1;
+    }
+  }
+
+  &:not(:hover).isActive {
+    background-color: var(--color_bg_selected);
+  }
+
+  &:hover {
+    background-color: var(--color_bg_active);
+  }
+
+  padding-top: var(--tree-node_vertical-padding);
+  padding-bottom: var(--tree-node_vertical-padding);
+
+  padding-left: var(--tree-node_horizontal-padding);
+}
+
+.title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.point {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-items: center;
+
+  min-width: var(--tree-node_height);
+  width: var(--tree-node_height);
+  height: var(--tree-node_height);
+
+  .spinner {
+    position: absolute;
+    top: calc((var(--tree-node_height) - var(--spinner_size)) / 2);
+    left: calc((var(--tree-node_height) - var(--spinner_size)) / 2);
+  }
+
+  .arrow {
+    position: absolute;
+  }
+}
+
+.icon {
+  width: var(--tree-node_height);
+  height: var(--tree-node_height);
+
+  transition: opacity var(--speed_fast);
+}
+
+.spinner {
+  --spinner_size: calc(
+    var(--tree-node_height) + var(--tree-node_vertical-padding)
+  );
+  color: var(--color_gray);
+  opacity: 0.5;
+  color: var(--color_gray);
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color_dark);
+  --collapsible-arrow_size: var(--tree-node_height);
+}
+
+// Interactions
+
+.root:hover.hasChildren {
+  .arrow {
+    opacity: 1;
+  }
+
+  .icon {
+    opacity: 0;
+  }
+}
+
+.root {
+  .arrow {
+    opacity: 0;
+    transition: opacity var(--speed_fast);
+  }
+}
